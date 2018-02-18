@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Julien&#39;s Blog">
+    <title>webpack ExtractTextWebpackPlugin plugin causes image 404 - Julien&#39;s Blog</title>
+    <meta name="author" content="Julien">
+    
+        <meta name="keywords" content="hexo,blog,javascript,">
+    
+    
+        <link rel="icon" href="https://blog.lakerswgq.space/assets/images/favicon.jpg">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="使用ExtractTextWebpackPlugin插件提取Css到单独目录时，css中设置的背景图片路径出错。">
+<meta name="keywords" content="webpack">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="webpack ExtractTextWebpackPlugin plugin causes image 404">
+<meta property="og:url" content="https://blog.lakerswgq.space/2017/09/10/webpack-ExtractTextWebpackPlugin-plugin-causes-image-404/index.html">
+<meta property="og:site_name" content="Julien&#39;s Blog">
+<meta property="og:description" content="使用ExtractTextWebpackPlugin插件提取Css到单独目录时，css中设置的背景图片路径出错。">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-02-14T16:53:38.765Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack ExtractTextWebpackPlugin plugin causes image 404">
+<meta name="twitter:description" content="使用ExtractTextWebpackPlugin插件提取Css到单独目录时，css中设置的背景图片路径出错。">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://opdr57uof.bkt.clouddn.com/avatar.jpg-webp"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-zxkamk62ezfj3eu2ognbmfrptzxqjm3oxebe4zszscmu63vetglodu1emt6x.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Julien&#39;s Blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="http://opdr57uof.bkt.clouddn.com/avatar.jpg-webp"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="http://opdr57uof.bkt.clouddn.com/avatar.jpg-webp"/>
+            </a>
+            <span class="sidebar-profile-name">Julien</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">首页</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">分类</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">标签</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">归档</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">搜索</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">关于</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/lakerswgq" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://stackoverflow.com/users/4940958/julien" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+                    <span class="sidebar-button-desc">Stack Overflow</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:lakerswgq@gmail.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            webpack ExtractTextWebpackPlugin plugin causes image 404
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2017-09-10T21:54:37+08:00">
+	
+		    9月 10, 2017
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/front-end/">front end</a>, <a class="category-link" href="/categories/front-end/webpack/">webpack</a>
+
+
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>使用ExtractTextWebpackPlugin插件提取Css到单独目录时，css中设置的背景图片路径出错。</p>
+<a id="more"></a>
+<p>webpack的<a href="https://webpack.js.org/plugins/extract-text-webpack-plugin/" target="_blank" rel="noopener">ExtractTextWebpackPlugin</a>插件是用来提取文本内容到独立文件的，一般用来提取Css文件。</p>
+<p>之前没有碰到过上什么问题，可是今天构建完成时发现有一个图片文件出现了404，看了下这张图片是在Css中设置的背景图片，使用import导入的另一张图片正常加载。</p>
+<p>图片使用的的file-loader，设置如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test: /\.(png|jpg|gif|svg)$/,</span><br><span class="line">    use: [&#123;</span><br><span class="line">        loader: "file-loader",</span><br><span class="line">        options: &#123;</span><br><span class="line">            name: "[name]-[hash].[ext]",</span><br><span class="line">            outputPath: "images/"</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>css文件是提取到css目录下的:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new ExtractTextPlugin(&#123;</span><br><span class="line">    filename: "css/[name].[md5:contenthash:base64:10].css"</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure>
+<p>file-loader替换了背景图片的路径，构建时为”images/xxx.png”，但是此时css被提取到css目录下，解析时会在css目录下找”images/xxx.png”，而images目录和css目录时平行的，所以出现了404。</p>
+<p>发现这个问题后我看到ExtractTextWebpackPlugin插件提供了publicPath选项，感觉可以利用这个改变下背景图片构建后的路径，我试着把它设为”../“:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test: /\.css$/,</span><br><span class="line">    use: ExtractTextPlugin.extract(&#123;</span><br><span class="line">        fallback: "style-loader",</span><br><span class="line">        use: "css-loader",</span><br><span class="line">        publicPath: "../"</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<p>重新构建，果然现在图片路径前面被加上了”../“,这样就可以正确的找到图片。</p>
+<p>google了一下这种方法是可以的。</p>
+<ul>
+<li><a href="https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27" target="_blank" rel="noopener">issue</a></li>
+</ul>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/webpack/">webpack</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/09/11/css-absolute-position/"  data-tooltip="css absolute position">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/09/10/vscode-config/" data-tooltip="vscode config">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.lakerswgq.space/2017/09/10/webpack-ExtractTextWebpackPlugin-plugin-causes-image-404/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lakerswgq.space/2017/09/10/webpack-ExtractTextWebpackPlugin-plugin-causes-image-404/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.lakerswgq.space/2017/09/10/webpack-ExtractTextWebpackPlugin-plugin-causes-image-404/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2018 Julien. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/09/11/css-absolute-position/"  data-tooltip="css absolute position">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/09/10/vscode-config/" data-tooltip="vscode config">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.lakerswgq.space/2017/09/10/webpack-ExtractTextWebpackPlugin-plugin-causes-image-404/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lakerswgq.space/2017/09/10/webpack-ExtractTextWebpackPlugin-plugin-causes-image-404/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.lakerswgq.space/2017/09/10/webpack-ExtractTextWebpackPlugin-plugin-causes-image-404/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://blog.lakerswgq.space/2017/09/10/webpack-ExtractTextWebpackPlugin-plugin-causes-image-404/">
+                <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lakerswgq.space/2017/09/10/webpack-ExtractTextWebpackPlugin-plugin-causes-image-404/">
+                <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://blog.lakerswgq.space/2017/09/10/webpack-ExtractTextWebpackPlugin-plugin-causes-image-404/">
+                <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="http://opdr57uof.bkt.clouddn.com/avatar.jpg-webp"/>
+        
+            <h4 id="about-card-name">Julien</h4>
+        
+            <h5 id="about-card-bio"><p>切图仔</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Hangzhou, China
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('http://opdr57uof.bkt.clouddn.com/cover.jpg-webp');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-psybx1zloe6ixyoprczwuuuqpiwqsseuloxcxguprxn39z6yy2gjgrdhvjll.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Julien&#39;s Blog">
+    <title>referer and host header in http - Julien&#39;s Blog</title>
+    <meta name="author" content="Julien">
+    
+        <meta name="keywords" content="hexo,blog,javascript,">
+    
+    
+        <link rel="icon" href="https://blog.lakerswgq.space/assets/images/favicon.jpg">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="http中的referer和host头">
+<meta name="keywords" content="http">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="referer and host header in http">
+<meta property="og:url" content="https://blog.lakerswgq.space/2017/12/04/referer-and-host-header-in-http/index.html">
+<meta property="og:site_name" content="Julien&#39;s Blog">
+<meta property="og:description" content="http中的referer和host头">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-02-14T16:53:38.763Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="referer and host header in http">
+<meta name="twitter:description" content="http中的referer和host头">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://opdr57uof.bkt.clouddn.com/avatar.jpg-webp"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-zxkamk62ezfj3eu2ognbmfrptzxqjm3oxebe4zszscmu63vetglodu1emt6x.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Julien&#39;s Blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="http://opdr57uof.bkt.clouddn.com/avatar.jpg-webp"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="http://opdr57uof.bkt.clouddn.com/avatar.jpg-webp"/>
+            </a>
+            <span class="sidebar-profile-name">Julien</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">首页</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">分类</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">标签</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">归档</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">搜索</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">关于</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/lakerswgq" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://stackoverflow.com/users/4940958/julien" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+                    <span class="sidebar-button-desc">Stack Overflow</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:lakerswgq@gmail.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            referer and host header in http
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2017-12-04T22:33:17+08:00">
+	
+		    12月 04, 2017
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/back-end/">back end</a>, <a class="category-link" href="/categories/back-end/http/">http</a>
+
+
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>http中的referer和host头</p>
+<a id="more"></a>
+<p>http中Referer, Host, Origin头部的含义比较容易让人混淆，整理一下。</p>
+<h4 id="Referer-Header"><a href="#Referer-Header" class="headerlink" title="Referer Header"></a>Referer Header</h4><p>Referer头部表示的是请求请求是从哪里来的，即是发起请求的页面的 <strong>完整URL</strong> 。</p>
+<p>比如从一个页面跳转到另一个页面，下一个页面的http请求的referer的头部即是上个页面的URL;而如果时这个页面上的图片等静态资源或者ajax请求，此时的Referer头部就是当前页面的URL。</p>
+<p>Referer头部可以用来预防CSRF攻击，不过也有泄露隐私的风险。</p>
+<p>Referer的正确拼写应该是Referrer，不过错的人多了，也就成了对的。</p>
+<h4 id="Host-Header"><a href="#Host-Header" class="headerlink" title="Host Header"></a>Host Header</h4><p>Host和Referer正好相反，Host包含的请求的资源所在服务器的主机名和端口。</p>
+<p>在http 1.1中，请求报文中必须包含Host头部。Host头部的必要性体现在单台主机运行多个域名服务的情况（虚拟主机）。假如一台服务器上部署了的a.com和b.com的服务，当请求到来时，IP包中包含的只有目的IP地址，而这两个站点的请求的目的IP地址是一样的，所以无法区分这是哪个站点发来的请求，也就不能转发给对应站点的服务器程序。所以http报文中必须包含Host头部，这样就能区分是哪个站点发来的请求。</p>
+<h4 id="Origin-Header"><a href="#Origin-Header" class="headerlink" title="Origin Header"></a>Origin Header</h4><p>Origin头部和Referer头部很像，也是标示请求来自哪里。但是有两点不同：</p>
+<ul>
+<li>Origin随CORS或POST请求一起发送</li>
+<li>Origin只包含请求页面的协议，主机名，端口，不包含完整路径</li>
+</ul>
+<p>比如 <a href="https://a.com/a.html" target="_blank" rel="noopener">https://a.com/a.html</a> 上发出了一个http请求，则Referer头部为 <a href="https://a.com/a.html" target="_blank" rel="noopener">https://a.com/a.html</a> ，而Orign(假如有的话)头部为 <a href="https://a.com" target="_blank" rel="noopener">https://a.com</a> 。</p>
+<h4 id="Referrer-Policy"><a href="#Referrer-Policy" class="headerlink" title="Referrer-Policy"></a>Referrer-Policy</h4><p>由于Referer头部有泄露隐私的可能，所以有时需要控制是否发送何种情况下发送Referer头部。这就是Referrer-Policy头部的作用。用法参照<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy" target="_blank" rel="noopener">MDN</a>。</p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/http/">http</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/12/05/what-s-this-in-nodejs/"  data-tooltip="what&#39;s this in nodejs?">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/29/Limit-text-height-to-n-lines/" data-tooltip="Limit text height to n lines">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.lakerswgq.space/2017/12/04/referer-and-host-header-in-http/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lakerswgq.space/2017/12/04/referer-and-host-header-in-http/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.lakerswgq.space/2017/12/04/referer-and-host-header-in-http/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2018 Julien. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/12/05/what-s-this-in-nodejs/"  data-tooltip="what&#39;s this in nodejs?">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/11/29/Limit-text-height-to-n-lines/" data-tooltip="Limit text height to n lines">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.lakerswgq.space/2017/12/04/referer-and-host-header-in-http/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lakerswgq.space/2017/12/04/referer-and-host-header-in-http/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.lakerswgq.space/2017/12/04/referer-and-host-header-in-http/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://blog.lakerswgq.space/2017/12/04/referer-and-host-header-in-http/">
+                <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lakerswgq.space/2017/12/04/referer-and-host-header-in-http/">
+                <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://blog.lakerswgq.space/2017/12/04/referer-and-host-header-in-http/">
+                <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="http://opdr57uof.bkt.clouddn.com/avatar.jpg-webp"/>
+        
+            <h4 id="about-card-name">Julien</h4>
+        
+            <h5 id="about-card-bio"><p>切图仔</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Hangzhou, China
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('http://opdr57uof.bkt.clouddn.com/cover.jpg-webp');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-psybx1zloe6ixyoprczwuuuqpiwqsseuloxcxguprxn39z6yy2gjgrdhvjll.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>

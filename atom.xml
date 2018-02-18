@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Julien&#39;s Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://blog.lakerswgq.space/"/>
+  <updated>2018-02-18T16:03:20.000Z</updated>
+  <id>https://blog.lakerswgq.space/</id>
+  
+  <author>
+    <name>Julien</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>what&#39;s npx</title>
+    <link href="https://blog.lakerswgq.space/2018/02/18/what-s-npx/"/>
+    <id>https://blog.lakerswgq.space/2018/02/18/what-s-npx/</id>
+    <published>2018-02-18T14:40:48.000Z</published>
+    <updated>2018-02-18T16:03:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>npx – execute npm package binaries</p><a id="more"></a><p>接触到npx是之前又一次装create-react-app的时候，之前为了用create-react-app的话都需要全局安装一下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g create-react-app</span><br></pre></td></tr></table></figure></p><p>现在的文档用的是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx create-react-app my-app</span><br><span class="line"><span class="built_in">cd</span> my-app</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure></p><p>于是就去查了一下，当时有些事情主要还是懒癌发作，一直没有记录，今天补上。</p><p>npx是用来运行npm包的一个工具（an npm package runner），这样说感觉非常模糊，下面直接给出例子说明npx可以做到什么。</p><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>npx在npm5.2.0中默认附带按章了，如果版本不够没有安装npx的话，一种就是升级node版本，一种就是直接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g npx</span><br></pre></td></tr></table></figure></p><p>全局安装。</p><h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>直接举例npx可以做到什么</p><p>1.npx一个主要作用就是可以执行局部安装的npx包。<br>之前如果需要在终端中直接使用一个npm包的话，需要全局安装，而且有时我们想运行的本地安装的最新版本。以前如果需要运行局部安装的npm包，可以通过编写npm script或者通过<code>bash .node_modules/.bin/xxx</code>这种直接指定路径的形式来实现。如果借助npx的话，已webpack为例，只需要<code>npx webpack</code>就可以直接运行本地安装的版本。</p><p>2.执行一次性调用<br>如果只需要用到一个包一次的话，使用npx就不需要npm全局安装这个包了。<br><code>npx webpack</code>如果本地没有安装的话，就会使用全局安装的版本，如果全局也没有安装的话，npx就会去下载这个包然后再去运行这个包的命令。下载后这个包并没有被全局或者局部安装。</p><p>3.npx运行时可以指定node的版本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx -p node-bin@6 -- node -v</span><br></pre></td></tr></table></figure><p>个人比较常用的就这些了，其他的功能可以参照文档。</p><h4 id="参阅："><a href="#参阅：" class="headerlink" title="参阅："></a>参阅：</h4><ul><li><a href="https://github.com/zkat/npx" target="_blank" rel="noopener">github</a></li><li><a href="https://robin-front.github.io/2017/07/14/introducing-npx-an-npm-package-runner/" target="_blank" rel="noopener">博客</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;npx – execute npm package binaries&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="nodejs" scheme="https://blog.lakerswgq.space/categories/nodejs/"/>
+    
+    
+      <category term="nodejs" scheme="https://blog.lakerswgq.space/tags/nodejs/"/>
+    
+      <category term="npm" scheme="https://blog.lakerswgq.space/tags/npm/"/>
+    
+      <category term="npx" scheme="https://blog.lakerswgq.space/tags/npx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2017</title>
+    <link href="https://blog.lakerswgq.space/2017/12/31/2017/"/>
+    <id>https://blog.lakerswgq.space/2017/12/31/2017/</id>
+    <published>2017-12-31T07:16:38.000Z</published>
+    <updated>2018-02-14T16:53:38.757Z</updated>
+    
+    <content type="html"><![CDATA[<p>一年又过去了</p><a id="more"></a><p>今天是2017的最后一天了，想想自己这一年挺失败的，想做好的事都没做好。</p><p>迈入2018年，在奔三的路上越走越远，再过几个月就是一个达到法定结婚年龄的人了<span class="heimu">虽然没有妹子</span>。</p><p>说起来毕业也只有半年的时间，不过感觉自己越来越弱了，或者说进步地太慢了吧。</p><p>本来写了一些目标啥的，还是删掉了，放在心里好了。总之新的一年希望成为一个更好的自己。</p><iframe style="visibility: hidden;" frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29379384&auto=1&height=66"><br></iframe>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一年又过去了&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="life" scheme="https://blog.lakerswgq.space/categories/life/"/>
+    
+    
+      <category term="life" scheme="https://blog.lakerswgq.space/tags/life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>switch to https</title>
+    <link href="https://blog.lakerswgq.space/2017/12/23/switch-to-https/"/>
+    <id>https://blog.lakerswgq.space/2017/12/23/switch-to-https/</id>
+    <published>2017-12-23T05:00:38.000Z</published>
+    <updated>2018-02-14T16:53:38.764Z</updated>
+    
+    <content type="html"><![CDATA[<p>不得已启用https</p><a id="more"></a><p>昨晚发现博客访问有问题，跳转到了奇怪的地址，感觉是被劫持了。看了下network发现被302了，挂了代理访问没问题，基本就是电信把我重定向了。</p><p><br></p><img src="http://opdr57uof.bkt.clouddn.com/images/302.png-webp"><p><strong> 我觉得这时保持微笑就可以了 </strong></p><p>决定上https，找了一下免费的方案。</p><p><a href="https://steffan.cn/2017/03/22/use-cloudflare-to-implement-HTTPS-for-GithubPages-with-custom-domain-names/" target="_blank" rel="noopener">不赘述</a></p><p>设置了一波，现在确实可以https访问了，不过因为七牛的资源还是http传输的，看了下七牛的https存储服务是没有免费流量的，另外也懒得弄了，暂时就先这样吧。</p><p>找个机会投诉一波电信。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;不得已启用https&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="back end" scheme="https://blog.lakerswgq.space/categories/back-end/"/>
+    
+    
+      <category term="http" scheme="https://blog.lakerswgq.space/tags/http/"/>
+    
+      <category term="https" scheme="https://blog.lakerswgq.space/tags/https/"/>
+    
+      <category term="Fuck ISP" scheme="https://blog.lakerswgq.space/tags/Fuck-ISP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git diff tips</title>
+    <link href="https://blog.lakerswgq.space/2017/12/19/git-diff-tips/"/>
+    <id>https://blog.lakerswgq.space/2017/12/19/git-diff-tips/</id>
+    <published>2017-12-19T08:18:40.000Z</published>
+    <updated>2018-02-14T16:53:38.760Z</updated>
+    
+    <content type="html"><![CDATA[<p>git diff简单使用, 不想–help时。。</p><a id="more"></a><h3 id="git-diff的一些简单小技巧"><a href="#git-diff的一些简单小技巧" class="headerlink" title="git diff的一些简单小技巧"></a>git diff的一些简单小技巧</h3><p>git diff –help就能打开git diff的手册，随时参阅</p><h4 id="常用方式："><a href="#常用方式：" class="headerlink" title="常用方式："></a>常用方式：</h4><ol><li><p>git diff [–options] [–] [<path></path>…​]</p><p> git diff是将工作区和暂存区diff，之前未跟踪的文件不会diff，可以指定path进行diff</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --stat -- folder/</span><br></pre></td></tr></table></figure></li><li><p>git diff [–options] –cached [<commit>]</commit></p><p>–cached选项是将暂存区和指定的commit进行diff，commit不填的话会和当前的HEAD进行diff。<br>不提供–cached就是工作区和commit进行difff</p></li><li><p>git diff [–options] <commit> <commit></commit></commit></p><p> 两个commit进行diff，这里的commit都可以换成tag</p></li><li><p>git diff branchNameA..branchNameB</p><p> 两个分支进行diff，有时比较有用</p></li></ol><h4 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h4><ol><li><p>–stat</p><p> 显示一个简单的status</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a.txt         | 1 +</span><br><span class="line">gitdiff/a.js  | 4 +++-</span><br><span class="line">gitdiff/b.css | 3 ++-</span><br><span class="line">3 files changed, 6 insertions(+), 2 deletions(-)</span><br></pre></td></tr></table></figure></li><li><p>–name-only</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a.txt</span><br><span class="line">gitdiff/a.js</span><br><span class="line">gitdiff/b.css</span><br></pre></td></tr></table></figure><p> 显示修改了哪些文件</p></li><li><p>–name-status</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A       a.txt</span><br><span class="line">M       gitdiff/a.js</span><br><span class="line">M       gitdiff/b.css</span><br></pre></td></tr></table></figure><p> 显示修改的文件和状态。A: 新增，M：修改</p></li><li><p>– path</p><p> 指定diff的路径</p></li></ol><h4 id="git-difftool"><a href="#git-difftool" class="headerlink" title="git difftool"></a>git difftool</h4><p>git的默认diff界面比较geek，有时候GUI可能方便一点，git允许我们和其他diff工具集成使用</p><p>使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git difftool --tool-help</span><br></pre></td></tr></table></figure></p><p>查看目前git版本支持的diff工具</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git difftool --help</span><br></pre></td></tr></table></figure><p>查看git difftool手册配置下diff工具</p><p>比如我要配成beyond compare：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global diff.tool bc3 </span><br><span class="line"><span class="comment"># 假如bc不在$PATH下不能直接调用的话，还要设下path</span></span><br><span class="line">git config --global difftool.bc3.path <span class="string">"bc的路径"</span></span><br></pre></td></tr></table></figure></p><p>中文教程的：</p><ul><li><a href="https://git-scm.com/book/zh/v1/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-%E9%85%8D%E7%BD%AE-Git#外部的合并与比较工具" target="_blank" rel="noopener">git配置手册</a></li></ul><p>然后直接使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git difftool [options]</span><br></pre></td></tr></table></figure><p>和git diff命令类似，就可以打开指定的diff工具一个一个对比了</p><p>P.S： 如果再进一步折腾的话做到直接diff目录（如果你配置的diff工具支持目录比对的话）</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;git diff简单使用, 不想–help时。。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="tools" scheme="https://blog.lakerswgq.space/categories/tools/"/>
+    
+    
+      <category term="git" scheme="https://blog.lakerswgq.space/tags/git/"/>
+    
+      <category term="tips" scheme="https://blog.lakerswgq.space/tags/tips/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>clone an object with circular reference in javascript</title>
+    <link href="https://blog.lakerswgq.space/2017/12/11/clone-an-object-with-circular-reference-in-javascript/"/>
+    <id>https://blog.lakerswgq.space/2017/12/11/clone-an-object-with-circular-reference-in-javascript/</id>
+    <published>2017-12-10T17:07:58.000Z</published>
+    <updated>2018-02-14T16:53:38.758Z</updated>
+    
+    <content type="html"><![CDATA[<p>深拷贝一个有循环引用的对象。</p><a id="more"></a><p>在js中进行deep clone时，JSON.stringify和JSON.parse方法基本可以满足大部分要求。但是这种方案在某些特殊情况下可能无法满足需求，比如需要clone的对象中存在循环时。</p><p>循环引用大概是这样的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span> (<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">    key: <span class="string">"value"</span></span><br><span class="line">&#125;;</span><br><span class="line">a.circular = a;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure></p><p>打印出来的信息可以显示circular属性是个循环引用：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; key: &apos;value&apos;, circular: [Circular] &#125;</span><br></pre></td></tr></table></figure><p>如果直接对obj调用deepClone，会抛出错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeError: Converting circular structure to JSON</span><br></pre></td></tr></table></figure></p><p>这时可以对json序列化的过程做一次过滤，过滤掉存在循环引用的属性：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> cache = [];</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(</span><br><span class="line">        <span class="comment">// 用到了JSON.stringify的第二个参数</span></span><br><span class="line">        <span class="built_in">JSON</span>.stringify(obj, <span class="function"><span class="keyword">function</span> (<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">'object'</span> &amp;&amp; value !== <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (cache.indexOf(value) !== <span class="number">-1</span>) &#123;</span><br><span class="line">                    <span class="comment">// Circular reference found, discard key</span></span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// Store value in our collection</span></span><br><span class="line">                cache.push(value);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        &#125;)</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>主要是在cache中判断了是否存在循环引用。</p><h4 id="参阅"><a href="#参阅" class="headerlink" title="参阅"></a>参阅</h4><ul><li><a href="https://stackoverflow.com/questions/11616630/json-stringify-avoid-typeerror-converting-circular-structure-to-json" target="_blank" rel="noopener">stackoverflow</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;深拷贝一个有循环引用的对象。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="javascirpt" scheme="https://blog.lakerswgq.space/categories/javascirpt/"/>
+    
+    
+      <category term="javascript" scheme="https://blog.lakerswgq.space/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascritp promise call then multiple times</title>
+    <link href="https://blog.lakerswgq.space/2017/12/08/javascritp-promise-call-then-multiple-times/"/>
+    <id>https://blog.lakerswgq.space/2017/12/08/javascritp-promise-call-then-multiple-times/</id>
+    <published>2017-12-08T15:02:07.000Z</published>
+    <updated>2018-02-14T16:53:38.762Z</updated>
+    
+    <content type="html"><![CDATA[<p>对同一个promise调用多次then方法。</p><a id="more"></a><p>平时没有碰到promise重复调用的场景，所以一开始也不能确定到底会发生什么。只能实际跑一下。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> test = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        resolve(<span class="string">"success"</span>);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> successHandle = <span class="function">(<span class="params">params</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"params:"</span>, params);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> errorHandle = <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"error:"</span>, error);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test.then(successHandle)</span><br><span class="line">    .catch(errorHandle);</span><br><span class="line"></span><br><span class="line">test.then(successHandle)</span><br><span class="line">    .catch(errorHandle);</span><br></pre></td></tr></table></figure><p>实际两个then里面的函数都被执行了。查了一下MDN有明确的叙述。</p><blockquote><p>回调函数始终会在then返回值后被调用，即使promise早已完成或已被拒绝。也可对多次调用同一个promise的then方法。所有的回调函数会按照其注册的顺序被调用。<br><br><br>当多次调用同一个promise的then方法，所有注册的回调函数独立执行。如，当在一个回调函数中出现异常时，不会影响后面回调函数的执行。回调函数的结果只会对其注册所使用的then方法返回的promise产生影响，每一次调用then方法返回的都是不同的promise对象。</p></blockquote><p>第一个then在1秒后被调用，第二个then因为promise已经是fullfilled状态，所以会被立即执行。</p><p>catch和then表现一样。</p><h4 id="参阅"><a href="#参阅" class="headerlink" title="参阅"></a>参阅</h4><ul><li><a href="https://developer.mozilla.org/zh-CN/docs/Mozilla/JavaScript_code_modules/Promise.jsm/Promise" target="_blank" rel="noopener">promise</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;对同一个promise调用多次then方法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="javascript" scheme="https://blog.lakerswgq.space/categories/javascript/"/>
+    
+    
+      <category term="promise" scheme="https://blog.lakerswgq.space/tags/promise/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>what&#39;s this in nodejs?</title>
+    <link href="https://blog.lakerswgq.space/2017/12/05/what-s-this-in-nodejs/"/>
+    <id>https://blog.lakerswgq.space/2017/12/05/what-s-this-in-nodejs/</id>
+    <published>2017-12-05T14:42:32.000Z</published>
+    <updated>2018-02-14T16:53:38.766Z</updated>
+    
+    <content type="html"><![CDATA[<p>关于nodejs中的this</p><a id="more"></a><p>javascript中的this是一个比较重要的知识点，有经验的jser都可以得心应手地运用this。但是在nodejs中，有时this的指向可能并不如我们所想。</p><figure class="highlight javascript"><figcaption><span>this.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"this in global context:"</span>, <span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"this in function:"</span>, <span class="keyword">this</span>);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure><p>用nodejs运行上面的代码<br>可以看到第一个this是一个空对象，第二个this输出的是全局对象。</p><p>按正常的理解，在全局上下文中，this应该指向全局对象。在浏览器中为window，nodejs中是global。而这里最外层的this却是个空对象。</p><p>但是输入node进入REPL(交互式解释器),输入this，可以看到此时this又是全局对象了。</p><p>此时大概可以感觉到应该是和nodejs的模块机制有关。</p><p>在nodejs中，每个文件被视为一个模块，在执行每个文件中的代码时，nodejs会用一个如下的包装器函数将其包装：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">exports, require, module, __filename, __dirname</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 模块的代码实际上在这里</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>所以在REPL中也没有exports变量。</p><p>这个包装函数最终时这样调用的：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> args = [self.exports, <span class="built_in">require</span>, self, filename, dirname];</span><br><span class="line"><span class="keyword">return</span> compiledWrapper.apply(self.exports, args);</span><br></pre></td></tr></table></figure><p>所以在一个nodejs脚本的最外层，this的值实际上指向exports(不是module.exports)。</p><p>可以验证一下：</p><figure class="highlight javascript"><figcaption><span>this.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"></span><br><span class="line">exports.name = <span class="string">"julien"</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"this in global context:"</span>, <span class="keyword">this</span>, <span class="keyword">this</span> === exports);</span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"this in function:"</span>, <span class="keyword">this</span>);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">this in global context: &#123; name: &apos;julien&apos; &#125; true</span><br><span class="line">this in function: undefined</span><br></pre></td></tr></table></figure><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul><li><a href="https://stackoverflow.com/questions/28955047/why-does-a-module-level-return-statement-work-in-node-js/28955050#28955050" target="_blank" rel="noopener">stackoverflow</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener">MDN</a></li><li><a href="http://nodejs.cn/api/modules.html#modules_the_module_wrapper" target="_blank" rel="noopener">nodejs.cn</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关于nodejs中的this&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="back end" scheme="https://blog.lakerswgq.space/categories/back-end/"/>
+    
+      <category term="nodejs" scheme="https://blog.lakerswgq.space/categories/back-end/nodejs/"/>
+    
+    
+      <category term="nodejs" scheme="https://blog.lakerswgq.space/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>referer and host header in http</title>
+    <link href="https://blog.lakerswgq.space/2017/12/04/referer-and-host-header-in-http/"/>
+    <id>https://blog.lakerswgq.space/2017/12/04/referer-and-host-header-in-http/</id>
+    <published>2017-12-04T14:33:17.000Z</published>
+    <updated>2018-02-14T16:53:38.763Z</updated>
+    
+    <content type="html"><![CDATA[<p>http中的referer和host头</p><a id="more"></a><p>http中Referer, Host, Origin头部的含义比较容易让人混淆，整理一下。</p><h4 id="Referer-Header"><a href="#Referer-Header" class="headerlink" title="Referer Header"></a>Referer Header</h4><p>Referer头部表示的是请求请求是从哪里来的，即是发起请求的页面的 <strong>完整URL</strong> 。</p><p>比如从一个页面跳转到另一个页面，下一个页面的http请求的referer的头部即是上个页面的URL;而如果时这个页面上的图片等静态资源或者ajax请求，此时的Referer头部就是当前页面的URL。</p><p>Referer头部可以用来预防CSRF攻击，不过也有泄露隐私的风险。</p><p>Referer的正确拼写应该是Referrer，不过错的人多了，也就成了对的。</p><h4 id="Host-Header"><a href="#Host-Header" class="headerlink" title="Host Header"></a>Host Header</h4><p>Host和Referer正好相反，Host包含的请求的资源所在服务器的主机名和端口。</p><p>在http 1.1中，请求报文中必须包含Host头部。Host头部的必要性体现在单台主机运行多个域名服务的情况（虚拟主机）。假如一台服务器上部署了的a.com和b.com的服务，当请求到来时，IP包中包含的只有目的IP地址，而这两个站点的请求的目的IP地址是一样的，所以无法区分这是哪个站点发来的请求，也就不能转发给对应站点的服务器程序。所以http报文中必须包含Host头部，这样就能区分是哪个站点发来的请求。</p><h4 id="Origin-Header"><a href="#Origin-Header" class="headerlink" title="Origin Header"></a>Origin Header</h4><p>Origin头部和Referer头部很像，也是标示请求来自哪里。但是有两点不同：</p><ul><li>Origin随CORS或POST请求一起发送</li><li>Origin只包含请求页面的协议，主机名，端口，不包含完整路径</li></ul><p>比如 <a href="https://a.com/a.html" target="_blank" rel="noopener">https://a.com/a.html</a> 上发出了一个http请求，则Referer头部为 <a href="https://a.com/a.html" target="_blank" rel="noopener">https://a.com/a.html</a> ，而Orign(假如有的话)头部为 <a href="https://a.com" target="_blank" rel="noopener">https://a.com</a> 。</p><h4 id="Referrer-Policy"><a href="#Referrer-Policy" class="headerlink" title="Referrer-Policy"></a>Referrer-Policy</h4><p>由于Referer头部有泄露隐私的可能，所以有时需要控制是否发送何种情况下发送Referer头部。这就是Referrer-Policy头部的作用。用法参照<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy" target="_blank" rel="noopener">MDN</a>。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;http中的referer和host头&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="back end" scheme="https://blog.lakerswgq.space/categories/back-end/"/>
+    
+      <category term="http" scheme="https://blog.lakerswgq.space/categories/back-end/http/"/>
+    
+    
+      <category term="http" scheme="https://blog.lakerswgq.space/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Limit text height to n lines</title>
+    <link href="https://blog.lakerswgq.space/2017/11/29/Limit-text-height-to-n-lines/"/>
+    <id>https://blog.lakerswgq.space/2017/11/29/Limit-text-height-to-n-lines/</id>
+    <published>2017-11-29T15:46:02.000Z</published>
+    <updated>2018-02-14T16:53:38.757Z</updated>
+    
+    <content type="html"><![CDATA[<p>只显示任意行文字</p><a id="more"></a><p>当文字内容太长的时候一个常见的需求就是隐藏超出的文字内容，一般是让文字只显示若干行。</p><p>但是css中并没有一个标准属性可以简单方便的做到这一点，所以这种效果一般都是各凭本事。这里简单总结一下常见的几种。</p><h4 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h4><p>pure css, 通过简单的line-height和max-height设置，缺点就是没有ellipsis的省略号效果。</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.overflow</span> &#123;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">1.1em</span>;</span><br><span class="line">    <span class="attribute">max-height</span>: <span class="number">2.2em</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h4><p>also pure css, 不过比较黑科技而且不是标准属性，在webkit内核的浏览器还可以战一战。</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.overflow</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">2</span>;</span><br><span class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这个方法很奇怪，限制行数还要引入flex布局，还是最老的已经被废弃的flex语法（虽然大多浏览器还支持，尤其是移动端），而且-webkit-line-clamp也不是标准属性，比如firefox就不支持它。不过在移动端webkit内核占主体的场景下可以用下。而且，这种写法超出部分是有省略效果的。</p><h4 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h4><p>使用js实现。</p><p>列几个库吧。。。</p><ul><li><a href="https://github.com/josephschmitt/Clamp.js" target="_blank" rel="noopener">clamp.js</a></li><li><a href="https://github.com/pvdspek/jquery.autoellipsis" target="_blank" rel="noopener">jquery.autoellipsis</a></li><li><a href="https://github.com/FrDH/jQuery.dotdotdot" target="_blank" rel="noopener">jQuery.dotdotdot</a> (这个商用要钱的。。)</li></ul><p>online demo =&gt; <a href="http://blog.lakerswgq.space/demo/clamp_text/index.html">最好启用模拟移动设备</a></p><h3 id="参阅"><a href="#参阅" class="headerlink" title="参阅"></a>参阅</h3><ul><li><a href="https://stackoverflow.com/questions/3922739/limit-text-length-to-n-lines-using-css" target="_blank" rel="noopener">link</a></li><li><a href="https://stackoverflow.com/questions/5269713/css-ellipsis-on-second-line" target="_blank" rel="noopener">link</a></li><li><a href="https://css-tricks.com/line-clampin/" target="_blank" rel="noopener">link</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;只显示任意行文字&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="front end" scheme="https://blog.lakerswgq.space/categories/front-end/"/>
+    
+      <category term="skills" scheme="https://blog.lakerswgq.space/categories/front-end/skills/"/>
+    
+    
+      <category term="css" scheme="https://blog.lakerswgq.space/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>set windows global proxy</title>
+    <link href="https://blog.lakerswgq.space/2017/11/11/set-windows-global-proxy/"/>
+    <id>https://blog.lakerswgq.space/2017/11/11/set-windows-global-proxy/</id>
+    <published>2017-11-11T02:00:23.000Z</published>
+    <updated>2018-02-14T16:53:38.763Z</updated>
+    
+    <content type="html"><![CDATA[<p>windows简单配置全局代理</p><a id="more"></a><p>在天朝写代码由于众所周知的原因总是有一些很麻烦的地方，很影响心情和效率。</p><p>我和很多人一样一直都是ss，不过ss也需要客户端支持socks5代理配置请求才能走代理，比较常见的是终端上有些命令可能要走代理，linux下感觉用<a href="https://github.com/shadowsocks/shadowsocks/wiki/Using-Shadowsocks-with-Command-Line-Tools" target="_blank" rel="noopener">proxychains</a>比较方便，或者也可以直接配全局代理。</p><p>最近在windows下遇到了类似的问题，看到几b每秒的速度有些绝望，觉得应该学习下配windows全局代理。。。</p><p>除了ss之外还需要下载<a href="https://www.proxifier.com/download.htm" target="_blank" rel="noopener">proxifier</a>。</p><p>1: 打开proxifier，然后 Profile =&gt; Proxy Servers 添加一个代理服务器:</p><img src="http://opdr57uof.bkt.clouddn.com/images/proxy_server.png-webp"><p>2: Profile =&gt;　Proxification Rules 配置一下代理规则，default是默认规则，如果其他规则都没匹配的话就使用默认的，我比较懒默认就走代理了。</p><img src="http://opdr57uof.bkt.clouddn.com/images/proxy_rules.png-webp"><p>3: Profile =&gt;　Name Resolution 改下DNS配置，只勾选第二个：</p><img src="http://opdr57uof.bkt.clouddn.com/images/dns_setting.png-webp"><p>基本就OK了</p><img src="http://opdr57uof.bkt.clouddn.com/images/ping_google.png-webp"><p>//  珍爱生命，远离windows, MD今天装node-sass费了半天劲</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;windows简单配置全局代理&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="tools" scheme="https://blog.lakerswgq.space/categories/tools/"/>
+    
+    
+      <category term="windows" scheme="https://blog.lakerswgq.space/tags/windows/"/>
+    
+      <category term="shadowsocks" scheme="https://blog.lakerswgq.space/tags/shadowsocks/"/>
+    
+      <category term="proxy" scheme="https://blog.lakerswgq.space/tags/proxy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>difference between application/x-www-form-urlencoded and multipart/form-data?</title>
+    <link href="https://blog.lakerswgq.space/2017/10/26/difference-between-application-x-www-form-urlencoded-and-multipart-form-data/"/>
+    <id>https://blog.lakerswgq.space/2017/10/26/difference-between-application-x-www-form-urlencoded-and-multipart-form-data/</id>
+    <published>2017-10-25T16:20:42.000Z</published>
+    <updated>2018-02-14T16:53:38.759Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><p><a href="https://stackoverflow.com/questions/4007969/application-x-www-form-urlencoded-or-multipart-form-data" target="_blank" rel="noopener">link</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/4007969/application-x-www-form-urlencoded-or-multipart-form-data&quot; target=&quot;
+      
+    
+    </summary>
+    
+      <category term="http" scheme="https://blog.lakerswgq.space/categories/http/"/>
+    
+    
+      <category term="http" scheme="https://blog.lakerswgq.space/tags/http/"/>
+    
+      <category term="ajax" scheme="https://blog.lakerswgq.space/tags/ajax/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>refer another property in same object literal</title>
+    <link href="https://blog.lakerswgq.space/2017/10/25/refer-another-property-in-same-object-literal/"/>
+    <id>https://blog.lakerswgq.space/2017/10/25/refer-another-property-in-same-object-literal/</id>
+    <published>2017-10-25T15:55:33.000Z</published>
+    <updated>2018-02-14T16:53:38.763Z</updated>
+    
+    <content type="html"><![CDATA[<p>js对象字面量中某一属性引用当前对象的其他属性。</p><a id="more"></a><p>说起来听绕口的，其实要解决的问题很简单：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里假装this指向obj</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="string">"property a"</span>,</span><br><span class="line">    b: <span class="keyword">this</span>.a + <span class="string">" something"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这段代码本来想要达到的目的就是根据对象来的一个属性来决定另一个属性的值。</p><p>但是上面的代码中，this其实并不是obj，而是javascript执行环境的全局对象，浏览器中就是window,nodejs就是global了。</p><blockquote><p>在全局执行上下文中（在任何函数体外部）this都指代全局对象</p></blockquote><p>所以b的值肯定不是你想要的那样。</p><p>有很多奇怪的方法能接近想要的效果，其中还是es5中的getter属性的方法最理想，也最简单。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    a: <span class="string">"property a"</span>,</span><br><span class="line">    get b() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.a + <span class="string">" something"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.b   <span class="comment">// =&gt; property a something</span></span><br></pre></td></tr></table></figure><p>简单优雅</p><h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><ul><li><a href="https://stackoverflow.com/questions/4616202/self-references-in-object-literal-declarations" target="_blank" rel="noopener">stackoverflow</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;js对象字面量中某一属性引用当前对象的其他属性。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="javascirpt" scheme="https://blog.lakerswgq.space/categories/javascirpt/"/>
+    
+    
+      <category term="javascript" scheme="https://blog.lakerswgq.space/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>something about z-index</title>
+    <link href="https://blog.lakerswgq.space/2017/10/21/something-about-z-index/"/>
+    <id>https://blog.lakerswgq.space/2017/10/21/something-about-z-index/</id>
+    <published>2017-10-21T13:30:01.000Z</published>
+    <updated>2018-02-14T16:53:38.764Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用z-index了解的新姿势</p><a id="more"></a><p>z-index是用来设置元素重叠时的堆叠层级的；只对定位元素有效；当值为整数时浏览器一般是有个极限值的。</p><p>之前关于z-index个人的印象就这么多，近期发现z-index有个比较奇怪的现象。</p><blockquote><p>当父元素已经设置了z-index时，后代元素上设置的z-index似乎是无效的。</p></blockquote><p>以前上图形学课记得屏幕元素基本可以看做放在三维坐标系中，当元素重叠时可以根据元素Z轴坐标的大小来确定是否可见。z-index属性听这个名字就觉得应该是差不多的东西，可是上面的结果和直觉并不符合。</p><p>后来在MDN上找到了原因：</p><blockquote><p>整型数字是生成的元素在当前堆叠上下文中的堆叠层级。元素同时会创建一个堆叠层级为0的本地堆叠上下文。这意味着子元素的 z-index 不与元素外的其余元素的 z-index 进行对比。</p><footer><strong>MDN解释</strong><cite><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index" target="_blank" rel="noopener">链接</a></cite></footer></blockquote><p>所以后代元素的z-index只在和父元素内的元素比较时有效，当和父元素外的元素发生重叠时，会根据父元素的z-index决定是否显示。</p><p>比如有两个元素A、B, z-index分别为15, 10。B中有个子元素C的z-index为20。当A和B重叠时，感觉应该是B被A遮挡，而B中的C则会显示。but事实上C也不会显示。</p><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/z-index" target="_blank" rel="noopener">z-index</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Understanding_z_index" target="_blank" rel="noopener">理解z-index</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用z-index了解的新姿势&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="front end" scheme="https://blog.lakerswgq.space/categories/front-end/"/>
+    
+      <category term="css" scheme="https://blog.lakerswgq.space/categories/front-end/css/"/>
+    
+    
+      <category term="css" scheme="https://blog.lakerswgq.space/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>absolute imports in create-react-app project</title>
+    <link href="https://blog.lakerswgq.space/2017/09/16/absolute-import-for-create-react-app/"/>
+    <id>https://blog.lakerswgq.space/2017/09/16/absolute-import-for-create-react-app/</id>
+    <published>2017-09-16T15:41:39.000Z</published>
+    <updated>2018-02-14T16:53:38.758Z</updated>
+    
+    <content type="html"><![CDATA[<p>在create-react-app中使用绝对路径import</p><a id="more"></a><p>个人学习react.js时很多都是用create-react-app这个脚手架工具来快速生成项目。create-react-app使用非常简单，而且相比vue-cli，它把复杂的配置文件都隐藏起来了，生成的项目目录极其简约，基本只有src和public。</p><p>不过太简约的话，有时想搞一些个性化的配置就会可能就比较麻烦了，而vue-cli这点就比较方便，因为它的配置文件都是暴露出来的，而且感觉vue-cli的webpack配置很值得学习参考。</p><p>之前写react导入资源都是用的相对路径，but目录比较深比较复杂时就会很蛋疼，就可能有这样的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> something <span class="keyword">from</span> <span class="string">"../../../file.ext"</span></span><br></pre></td></tr></table></figure></p><p>这样的情况。</p><p>而且webpack是支持设置<a href="https://webpack.js.org/configuration/resolve/#resolve-alias" target="_blank" rel="noopener">alias</a>的，<br>然而create-react-app的webpack对我们是透明的，不能直接改webpack配置文件。</p><p>果然这么坑的事早就有人提过issue，我搜到<a href="https://github.com/facebookincubator/create-react-app/issues/2188" target="_blank" rel="noopener">这个</a>。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 根目录下</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"NODE_PATH=src"</span> &gt; .env</span><br></pre></td></tr></table></figure><p>设置了一下环境变量，发现报错了，而且确实从src目录下搜索了，但是提示没找到响应文件。比对了一下目录并没有写错。</p><p>又看了一下，发现那个issue有个关联的<a href="https://github.com/facebookincubator/create-react-app/issues/2230" target="_blank" rel="noopener">issue</a>就是.env文件没生效的情况，发现目前要在npm scripts里面指定环境变量。package.json增加一条：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"dev"</span>: <span class="string">"NODE_PATH=./src npm run start"</span>,</span><br></pre></td></tr></table></figure><p>再npm run dev，表现正常了,根据issue目前为止似乎仍没有支持.dev文件配置NODE_PATH。</p><p>不过设置<a href="http://nodejs.cn/api/modules.html#modules_loading_from_the_global_folders" target="_blank" rel="noopener">NODE_PATH</a>的话，似乎和webpack的设置别名关系不大了。NODE_PATH是nodejs在其他地方没找到模块时会尝试去NODE_PATH指定的路径中去找。</p><p>等以后发现更加科学的方式再补充。</p><h4 id="相关补充"><a href="#相关补充" class="headerlink" title="相关补充"></a>相关补充</h4><ul><li><a href="https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders" target="_blank" rel="noopener">NODE_PATH</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在create-react-app中使用绝对路径import&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="front end" scheme="https://blog.lakerswgq.space/categories/front-end/"/>
+    
+      <category term="react.js" scheme="https://blog.lakerswgq.space/categories/front-end/react-js/"/>
+    
+    
+      <category term="react.js" scheme="https://blog.lakerswgq.space/tags/react-js/"/>
+    
+      <category term="create-react-app" scheme="https://blog.lakerswgq.space/tags/create-react-app/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css absolute position</title>
+    <link href="https://blog.lakerswgq.space/2017/09/11/css-absolute-position/"/>
+    <id>https://blog.lakerswgq.space/2017/09/11/css-absolute-position/</id>
+    <published>2017-09-11T15:20:33.000Z</published>
+    <updated>2018-02-14T16:53:38.758Z</updated>
+    
+    <content type="html"><![CDATA[<p>absolute positioning in css</p><a id="more"></a><blockquote><p>The element is removed from the normal document flow; no space is created for the element in the page layout. Instead, it is positioned relative to its closest positioned ancestor if any; otherwise, it is placed relative to the initial containing block.</p><footer><strong>MDN关于绝对定位规则的解释</strong></footer></blockquote><p>其实我也忘了在哪里看到的，只记得依稀记得有一行字说当一个绝对定位的元素如果祖先元素都找不到定位元素的话，就相对于body定位，以至于很长时间以来我都是这么认为的。</p><p>后来在安卓上碰到一个”bug”，但点击输入框唤出键盘时，原本绝对定位的元素竟然浮上来了，此时body高度应该是没变的，而absolute定位的元素表现的竟然像是fixed元素一样。</p><p>用移动调试工具确认了下body高度没有问题后，感觉明显不是根据body来定位的，重新看了下MDN，就是上面引用那段话，没提到body而是一个叫initial containing block的东西。</p><p>google it.</p><blockquote><p>The containing block in which the root element lives is a rectangle called the initial containing block. For continuous media, it has the dimensions of the viewport and is anchored at the canvas origin; it is the page area for paged media. The ‘direction’ property of the initial containing block is the same as for the root element.</p><footer><strong>来自w3c官网</strong></footer></blockquote><p>所以和body没什么关系，是根据initial containing block来定位的，对上面的安卓webview中来说，就是相对于viewport定位的。所以唤出键盘时，viewport变化，绝对定位元素会向上浮动。<br>解决方法也很简单，给body加上相对定位就可以。</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这样就不会往上浮了。</p><p>所以，报道出了偏差是要负责任的！</p><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul><li><a href="https://stackoverflow.com/questions/32652139/css-position-absolute-next-positioned-element-is-body" target="_blank" rel="noopener">stackoverflow</a></li><li><a href="https://www.w3.org/TR/CSS2/visudet.html" target="_blank" rel="noopener">w3c</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank" rel="noopener">MDN</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;absolute positioning in css&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="front end" scheme="https://blog.lakerswgq.space/categories/front-end/"/>
+    
+      <category term="css" scheme="https://blog.lakerswgq.space/categories/front-end/css/"/>
+    
+    
+      <category term="css" scheme="https://blog.lakerswgq.space/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>webpack ExtractTextWebpackPlugin plugin causes image 404</title>
+    <link href="https://blog.lakerswgq.space/2017/09/10/webpack-ExtractTextWebpackPlugin-plugin-causes-image-404/"/>
+    <id>https://blog.lakerswgq.space/2017/09/10/webpack-ExtractTextWebpackPlugin-plugin-causes-image-404/</id>
+    <published>2017-09-10T13:54:37.000Z</published>
+    <updated>2018-02-14T16:53:38.765Z</updated>
+    
+    <content type="html"><![CDATA[<p>使用ExtractTextWebpackPlugin插件提取Css到单独目录时，css中设置的背景图片路径出错。</p><a id="more"></a><p>webpack的<a href="https://webpack.js.org/plugins/extract-text-webpack-plugin/" target="_blank" rel="noopener">ExtractTextWebpackPlugin</a>插件是用来提取文本内容到独立文件的，一般用来提取Css文件。</p><p>之前没有碰到过上什么问题，可是今天构建完成时发现有一个图片文件出现了404，看了下这张图片是在Css中设置的背景图片，使用import导入的另一张图片正常加载。</p><p>图片使用的的file-loader，设置如下：</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test: /\.(png|jpg|gif|svg)$/,</span><br><span class="line">    use: [&#123;</span><br><span class="line">        loader: "file-loader",</span><br><span class="line">        options: &#123;</span><br><span class="line">            name: "[name]-[hash].[ext]",</span><br><span class="line">            outputPath: "images/"</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>css文件是提取到css目录下的:</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new ExtractTextPlugin(&#123;</span><br><span class="line">    filename: "css/[name].[md5:contenthash:base64:10].css"</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure><p>file-loader替换了背景图片的路径，构建时为”images/xxx.png”，但是此时css被提取到css目录下，解析时会在css目录下找”images/xxx.png”，而images目录和css目录时平行的，所以出现了404。</p><p>发现这个问题后我看到ExtractTextWebpackPlugin插件提供了publicPath选项，感觉可以利用这个改变下背景图片构建后的路径，我试着把它设为”../“:</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test: /\.css$/,</span><br><span class="line">    use: ExtractTextPlugin.extract(&#123;</span><br><span class="line">        fallback: "style-loader",</span><br><span class="line">        use: "css-loader",</span><br><span class="line">        publicPath: "../"</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure><p>重新构建，果然现在图片路径前面被加上了”../“,这样就可以正确的找到图片。</p><p>google了一下这种方法是可以的。</p><ul><li><a href="https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27" target="_blank" rel="noopener">issue</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用ExtractTextWebpackPlugin插件提取Css到单独目录时，css中设置的背景图片路径出错。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="front end" scheme="https://blog.lakerswgq.space/categories/front-end/"/>
+    
+      <category term="webpack" scheme="https://blog.lakerswgq.space/categories/front-end/webpack/"/>
+    
+    
+      <category term="webpack" scheme="https://blog.lakerswgq.space/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vscode config</title>
+    <link href="https://blog.lakerswgq.space/2017/09/10/vscode-config/"/>
+    <id>https://blog.lakerswgq.space/2017/09/10/vscode-config/</id>
+    <published>2017-09-10T08:05:03.000Z</published>
+    <updated>2018-02-14T16:53:38.765Z</updated>
+    
+    <content type="html"><![CDATA[<p>vscode user setting and common plugins</p><a id="more"></a><p>记录下vscode的个人配置, keep updating</p><h4 id="Preference"><a href="#Preference" class="headerlink" title="Preference"></a>Preference</h4><figure class="highlight json"><figcaption><span>setting.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"window.zoomLevel"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"editor.fontSize"</span>: <span class="number">30</span>,</span><br><span class="line">    <span class="attr">"workbench.statusBar.visible"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"window.menuBarVisibility"</span>: <span class="string">"toggle"</span>,</span><br><span class="line">    <span class="attr">"emmet.syntaxProfiles"</span>: &#123;</span><br><span class="line">        <span class="attr">"vue-html"</span>: <span class="string">"html"</span>,</span><br><span class="line">        <span class="attr">"vue"</span>: <span class="string">"html"</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    // 控制是否及何种情况下在新tab内打开文件</span><br><span class="line">    // Controls if opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).</span><br><span class="line">    "workbench.editor.enablePreview": true,</span><br><span class="line">    // Controls if opened editors from Quick Open show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).</span><br><span class="line">    "workbench.editor.enablePreviewFromQuickOpen": false,</span><br><span class="line">    "workbench.sideBar.location": "left",</span><br><span class="line"></span><br><span class="line">    // Scans devDependencies as well </span><br><span class="line">    // npm intellisense 默认只提示dev dependencies</span><br><span class="line">    "npm-intellisense.scanDevDependencies": true,</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h4><ul><li>Beautify</li><li>Easy Less</li><li>ESLint</li><li>Npm Intellisense</li><li>Open In Browser</li><li>Path Intellisense</li><li>Preview  =&gt;  markdown preview</li><li>Pug Snippets</li><li>Pug Beautify  =&gt;  format pug(jade)</li><li>Python</li><li>Sublime Text Keymap</li><li>Vetur</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;vscode user setting and common plugins&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="tools" scheme="https://blog.lakerswgq.space/categories/tools/"/>
+    
+    
+      <category term="editor" scheme="https://blog.lakerswgq.space/tags/editor/"/>
+    
+      <category term="vscode" scheme="https://blog.lakerswgq.space/tags/vscode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dynamic import in javascript</title>
+    <link href="https://blog.lakerswgq.space/2017/09/03/dynamic-import-in-javascript/"/>
+    <id>https://blog.lakerswgq.space/2017/09/03/dynamic-import-in-javascript/</id>
+    <published>2017-09-03T10:25:29.000Z</published>
+    <updated>2018-02-14T16:53:38.759Z</updated>
+    
+    <content type="html"><![CDATA[<p>import() syntax in es2015</p><a id="more"></a><p>es2015中使用inport和export语法实现的模块体系时完全静态的，模块依赖关系在编译(是的，javscript也是会编译的)时就被决定了，运行时无法更改。这样的优点是可以在编译时进行静态分析，方便进行静态检查和优化。然而静态模块的不便之处似乎更加明显，我们无法动态的加载模块了。</p><p>比如在commonjs中，我们可以这样写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> test;</span><br><span class="line"><span class="keyword">let</span> moduleName = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">Math</span>.random() &gt; <span class="number">0.5</span>)&#123;</span><br><span class="line">    moduleName = <span class="string">"./a.js"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    moduleName = <span class="string">"./b.js"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test = <span class="built_in">require</span>(moduleName);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(test);</span><br></pre></td></tr></table></figure></p><p>但是在使用es2015的import时是不行的，假如用import重写上面的代码的话，import是在编译阶段被处理的，此时无法知道if语句的条件成立与否，变量也都没有被创建，所以使用import上面的代码会直接在编译阶段报语法错误。所以import和export只能放在代码的最顶层，不能被代码块所包含。</p><p>但是动态加载模块有时还是很有用的，所以提出了<a href="https://github.com/tc39/proposal-dynamic-import" target="_blank" rel="noopener">import()</a>。</p><p>因为node8版本还是不支持es2015的模块系统，所以用webpack来配合下。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    import(&quot;jquery&quot;).then($ =&gt; &#123;</span><br><span class="line">        console.log(&quot;jquery imported:&quot;, $);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;, 1000);</span><br><span class="line"></span><br><span class="line">console.log(&quot;jquery:&quot;, $);</span><br><span class="line"></span><br><span class="line">export default index;</span><br></pre></td></tr></table></figure><p>webpack的相关信息可以看<a href="https://webpack.js.org/api/module-methods/#import-" target="_blank" rel="noopener">文档</a></p><p>import()返回的是一个promise对象，所以和commonjs的require不同，import()是异步的。</p><p><small><small><small>其实一开始我还想了下为啥没有export()之类的东西…</small></small></small></p><h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul><li><a href="http://es6.ruanyifeng.com/#docs/module#import" target="_blank" rel="noopener">阮一峰</a></li><li><a href="https://hacks.mozilla.org/2017/02/a-crash-course-in-just-in-time-jit-compilers/" target="_blank" rel="noopener">javascript JIT compilers</a><br><a href="https://softwareengineering.stackexchange.com/questions/291230/how-does-chrome-v8-work-and-why-was-javascript-not-jit-compiled-in-the-first-pl" target="_blank" rel="noopener">JIT compile</a></li><li><a href="http://2ality.com/2017/01/import-operator.html" target="_blank" rel="noopener">import() blog</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;import() syntax in es2015&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="javascript" scheme="https://blog.lakerswgq.space/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="https://blog.lakerswgq.space/tags/javascript/"/>
+    
+      <category term="es2015" scheme="https://blog.lakerswgq.space/tags/es2015/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>process.nextTick vs setImmediate vs setTimeout(0)</title>
+    <link href="https://blog.lakerswgq.space/2017/08/27/process-nextTick-vs-setImmediate-vs-setTimeout-0/"/>
+    <id>https://blog.lakerswgq.space/2017/08/27/process-nextTick-vs-setImmediate-vs-setTimeout-0/</id>
+    <published>2017-08-27T08:09:52.000Z</published>
+    <updated>2018-02-14T16:53:38.762Z</updated>
+    
+    <content type="html"><![CDATA[<p>javascript event loop</p><a id="more"></a><p>javascript被设计为单线程的，负责解释执行javascript程序的线程始终只有一个。这意味着javascript执行一段程序时，其他部分都需要等待上一个程序执行完成才能执行。</p><p>然而现代计算机都是支持真正的多进程并行处理的，为了同时执行多个任务，javascript采取了事件循环机制，这也是javascript异步特性的基础。</p><p><a href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/" target="_blank" rel="noopener">link</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;javascript event loop&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="javascript" scheme="https://blog.lakerswgq.space/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="https://blog.lakerswgq.space/tags/javascript/"/>
+    
+      <category term="nodejs" scheme="https://blog.lakerswgq.space/tags/nodejs/"/>
+    
+      <category term="event loop" scheme="https://blog.lakerswgq.space/tags/event-loop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>better to provide key when use v-for</title>
+    <link href="https://blog.lakerswgq.space/2017/08/08/better-to-provide-key-when-use-v-for/"/>
+    <id>https://blog.lakerswgq.space/2017/08/08/better-to-provide-key-when-use-v-for/</id>
+    <published>2017-08-08T14:30:40.000Z</published>
+    <updated>2018-02-14T16:53:38.758Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录最近一次踩坑经历</p><a id="more"></a><p>vue.js的文档中提示我们在使用渲染列表时最好要提供key来跟踪这个节点，除非你知道自己在做什么。</p><p>vue会根据这个key来标识这个节点，并在数据更新时根据这个key做diff。如果没有key，vue就会简单的重用其他的节点，然后就可能会有坑。</p><p>最近有一段代码使用了v-for, 是一个数组的迭代，生成一个列表。列表中某些元素中文字内容坑很长，需要做个font-size的自适应，超出容器宽度时自动缩小字体。我使用vue的自定义指令来实现，部分元素的font-size被改写。功能完成后初期看起来没问题，后来在测试过程中发现，当数据发生变化时，有些元素的缩放不符合期望。而且在指令的update钩子函数里的oldvalue和value是不变的，所以没有重新触发自适应函数。</p><p>简单的效果类似这样 =&gt; <a href="https://jsfiddle.net/lakerswgq/du153e98/" target="_blank" rel="noopener">link</a></p><p>想了一下应该就是vue复用了之前的节点，加上key后解决，数据更新时未发生错乱。</p><p>坑还是要踩过印象才会更深刻，现在想起N久之前学angular时貌似也遇到过类似问题，有点怀念那段时光。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录最近一次踩坑经历&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="front" scheme="https://blog.lakerswgq.space/categories/front/"/>
+    
+      <category term="javascript" scheme="https://blog.lakerswgq.space/categories/front/javascript/"/>
+    
+    
+      <category term="javascript" scheme="https://blog.lakerswgq.space/tags/javascript/"/>
+    
+      <category term="vue.js" scheme="https://blog.lakerswgq.space/tags/vue-js/"/>
+    
+  </entry>
+  
+</feed>

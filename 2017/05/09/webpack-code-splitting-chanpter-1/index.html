@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Julien&#39;s Blog">
+    <title>webpack code splitting (chanpter 1) - Julien&#39;s Blog</title>
+    <meta name="author" content="Julien">
+    
+        <meta name="keywords" content="hexo,blog,javascript,">
+    
+    
+        <link rel="icon" href="https://blog.lakerswgq.space/assets/images/favicon.jpg">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="webpack的简单代码分割">
+<meta name="keywords" content="webpack">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="webpack code splitting (chanpter 1)">
+<meta property="og:url" content="https://blog.lakerswgq.space/2017/05/09/webpack-code-splitting-chanpter-1/index.html">
+<meta property="og:site_name" content="Julien&#39;s Blog">
+<meta property="og:description" content="webpack的简单代码分割">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2018-02-14T16:53:38.766Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack code splitting (chanpter 1)">
+<meta name="twitter:description" content="webpack的简单代码分割">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://opdr57uof.bkt.clouddn.com/avatar.jpg-webp"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-zxkamk62ezfj3eu2ognbmfrptzxqjm3oxebe4zszscmu63vetglodu1emt6x.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">Julien&#39;s Blog</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="http://opdr57uof.bkt.clouddn.com/avatar.jpg-webp"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="http://opdr57uof.bkt.clouddn.com/avatar.jpg-webp"/>
+            </a>
+            <span class="sidebar-profile-name">Julien</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">首页</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">分类</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">标签</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">归档</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">搜索</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">关于</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/lakerswgq" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://stackoverflow.com/users/4940958/julien" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-stack-overflow"></i>
+                    <span class="sidebar-button-desc">Stack Overflow</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:lakerswgq@gmail.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Mail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            webpack code splitting (chanpter 1)
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" datetime="2017-05-09T19:48:21+08:00">
+	
+		    5月 09, 2017
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/front-end/">front end</a>, <a class="category-link" href="/categories/front-end/webpack/">webpack</a>
+
+
+    
+</div>
+
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>webpack的简单代码分割</p>
+<a id="more"></a>
+<p>webpack官网把代码分割分了三个部分 =&gt; <a href="https://webpack.js.org/guides/code-splitting/#resource-splitting-for-caching-and-parallel-loads" target="_blank" rel="noopener">地址</a></p>
+<ul>
+<li>Vendor code splitting</li>
+<li>CSS splitting</li>
+<li>On demand code-splitting</li>
+</ul>
+<p>这篇写个人对Vendor code splitting部分的一些尝试。</p>
+<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>Vendor code splitting主要处理第三方插件框架打包的问题，vendor是供应商的意思，因为这部分的代码基本不会变，如果和应用代码带包到一起（应用代码是经常改动的），打包出来的chunks也会每次都不一样，这样我们就不能利用缓存去加快访问这些资源的速度，所以我们希望将这部分代码分离出来生成一个独立的文件。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>以jquery的打包为例，首先安装jquery<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save jquery</span><br></pre></td></tr></table></figure></p>
+<p>配置webpack.config.js,设置了入口和打包文件输出设置<br><figure class="highlight json"><figcaption><span>entry</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">let path = require("path");</span><br><span class="line">let webpack = require("webpack");</span><br><span class="line"></span><br><span class="line">modules.exports = &#123;</span><br><span class="line">	entry: &#123;</span><br><span class="line">		app: "./src/app.js",</span><br><span class="line">		main: "./src/main.js",</span><br><span class="line">	&#125;,</span><br><span class="line">	output: &#123;</span><br><span class="line">			filename: assetDir+"js/[name].[chunkhash].js",</span><br><span class="line">			publicPath: "",</span><br><span class="line">			path: path.resolve(__dirname, "./dist"),</span><br><span class="line">		&#125;,</span><br><span class="line">	plugins: [</span><br><span class="line">		new HtmlWebpackPlugin(&#123;</span><br><span class="line">			template: "index.html"</span><br><span class="line">		&#125;),</span><br><span class="line">	]	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>在main.js中编写代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">"jquery"</span></span><br><span class="line"><span class="keyword">import</span> image <span class="keyword">from</span> <span class="string">"./image/2.jpg"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> $image = $(<span class="string">"&lt;img&gt;&lt;/img&gt;"</span>);</span><br><span class="line">$image.attr(<span class="string">"src"</span>, image);</span><br><span class="line"><span class="built_in">console</span>.log($image);</span><br><span class="line">$(<span class="built_in">document</span>.body).append($image);</span><br></pre></td></tr></table></figure></p>
+<p>然后打包会发现有main.js打出来的包特别大（当然没启用代码压缩）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">                                 Asset       Size  Chunks                    Chunk Names</span><br><span class="line">static/js/main.1bfd830214e54480638a.js     281 kB       0  [emitted]  [big]  main</span><br><span class="line">                            index.html  304 bytes          [emitted]</span><br></pre></td></tr></table></figure></p>
+<p>为了把jquery打包成独立文件，需要使用<a href="https://webpack.js.org/plugins/commons-chunk-plugin/" target="_blank" rel="noopener">CommonsChunkPlugin</a>插件。<br>在entry配置加一项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">entry: &#123;</span><br><span class="line">		app: &quot;./src/app.js&quot;,</span><br><span class="line">		main: &quot;./src/main.js&quot;,</span><br><span class="line">		vendor: [&quot;jquery&quot;]</span><br><span class="line">	&#125;,</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>再启用CommonsChunkPlugin插件,把entry的vendor项进行分割打包<br><figure class="highlight json"><figcaption><span>webpack.config.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">let path = require("path");</span><br><span class="line">let webpack = require("webpack");</span><br><span class="line"></span><br><span class="line">modules.exports = &#123;</span><br><span class="line">	entry: &#123;</span><br><span class="line">		app: "./src/app.js",</span><br><span class="line">		main: "./src/main.js",</span><br><span class="line">		vendor: ["jquery"]</span><br><span class="line">	&#125;,</span><br><span class="line">	output: &#123;</span><br><span class="line">			filename: assetDir+"js/[name].[chunkhash].js",</span><br><span class="line">			publicPath: "",</span><br><span class="line">			path: path.resolve(__dirname, "./dist"),</span><br><span class="line">		&#125;,	</span><br><span class="line">	plugins: [</span><br><span class="line">		new webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">			names: ["vendor"],</span><br><span class="line">		&#125;),</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>重新运行webpack<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">                                  Asset       Size  Chunks                    Chunk Names</span><br><span class="line">  static/js/main.2dd0efc1bc2a64606e3f.js    10.4 kB       0  [emitted]         main</span><br><span class="line">static/js/vendor.563278ce106e847a9d92.js     274 kB       1  [emitted]  [big]  vendor</span><br><span class="line">                              index.html  391 bytes          [emitted]</span><br><span class="line">   [0] ./~/jquery/dist/jquery.js 268 kB &#123;1&#125; [built]</span><br><span class="line">   [1] ./src/image/2.jpg 9.75 kB &#123;0&#125; [built]</span><br><span class="line">   [2] ./src/main.js 455 bytes &#123;0&#125; [built]</span><br><span class="line">   [3] multi jquery 28 bytes &#123;1&#125; [built]</span><br></pre></td></tr></table></figure></p>
+<p>可以看到jquery被打包到chunk 1，即vendor.[chunkhash].js中，main.js体积变小了很多。</p>
+<p>不过改下main.js的内容，加个console.log(“hello,world”)什么的再webpack发现vendor的哈希值变了，然而我们并没有改动jquery的内容。</p>
+<blockquote><p>But, if we change application code and run webpack again, we see that the hash for the vendor file changes. Even though we achieved separate bundles for vendor and main bundles, we see that the vendor bundle changes when the application code changes. This means that we still don’t reap the benefits of browser caching because the hash for vendor file changes on every build and the browser will have to reload the file.</p>
+<p>The issue here is that on every build, webpack generates some webpack runtime code, which helps webpack do its job. When there is a single bundle, the runtime code resides in it. But when multiple bundles are generated, the runtime code is extracted into the common module, here the vendor file.</p>
+<p>To prevent this, we need to extract out the runtime into a separate manifest file. Even though we are creating another bundle, the overhead is offset by the long term caching benefits that we obtain on the vendor file.</p>
+<footer><strong>webpack官网的解释</strong></footer></blockquote>
+<p>把runtime code提取到manifest文件就可以了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">plugins: [</span><br><span class="line">		new webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">			names: [&quot;vendor&quot;,&quot;manifest&quot;],           </span><br><span class="line">		&#125;),</span><br><span class="line">	]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>再改main.js发现vendor的哈希不变,manifest的哈希变了</p>
+<p>如果不确定哪些第三方库需要分割，可以使用minChunks属性</p>
+<blockquote><p>minChunks: number|Infinity|function(module, count) -&gt; boolean,<br>// The minimum number of chunks which need to contain a module before it’s moved into the commons chunk.<br>// The number must be greater than or equal 2 and lower than or equal to the number of chunks.<br>// Passing <code>Infinity</code> just creates the commons chunk, but moves no modules into it.<br>// By providing a <code>function</code> you can add custom logic. (Defaults to the number of chunks)</p>
+<footer><strong>属性介绍</strong></footer></blockquote>
+<p>比如minChunks设为2，如果有两个模块都用到了jquery，就会自动分割打包jquery<br>minChunks设为函数时，接受两个参数module,count</p>
+<blockquote><p>You also have the ability to pass the minChunks property a function. This function is called by the CommonsChunkPlugin and calls the function with module and count arguments.</p>
+<p>The module argument represents each module in the chunks you have provided via the name/names property. module has the shape of a NormalModule, which has two particularly useful properties for this use case:</p>
+<p>module.context: The directory that stores the file. For example: ‘/my_project/node_modules/example-dependency’<br>module.resource: The name of the file being processed. For example: ‘/my_project/node_modules/example-dependency/index.js’<br>The count argument represents how many chunks the module is used in.</p>
+<footer><strong>minChunks参数</strong></footer></blockquote>
+<p>比如把node_modules下的都分割出来,这样vendor就不用写了<br><figure class="highlight json"><figcaption><span>webpack.config.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">let path = require("path");</span><br><span class="line">let webpack = require("webpack");</span><br><span class="line"></span><br><span class="line">modules.exports = &#123;</span><br><span class="line">	entry: &#123;</span><br><span class="line">		app: "./src/app.js",</span><br><span class="line">		main: "./src/main.js",</span><br><span class="line">		// vendor: ["jquery"]</span><br><span class="line">	&#125;,</span><br><span class="line">	output: &#123;</span><br><span class="line">			filename: assetDir+"js/[name].[chunkhash].js",</span><br><span class="line">			publicPath: "",</span><br><span class="line">			path: path.resolve(__dirname, "./dist"),</span><br><span class="line">		&#125;,	</span><br><span class="line">	plugins: [</span><br><span class="line">		new webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">			names: ["vendor"],</span><br><span class="line">			minChunks: function (module) &#123;</span><br><span class="line">				return module.context &amp;&amp; module.context.indexOf('node_modules') !== -1;</span><br><span class="line">			&#125;,</span><br><span class="line">		&#125;),</span><br><span class="line">		new webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line">			name: 'manifest'</span><br><span class="line">		&#125;),</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">**更新**</span><br><span class="line"></span><br><span class="line">这玩意变化的有点快。。一段时间就过时了，还是以文档为准吧，不写这种的了</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/webpack/">webpack</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/16/is-variables-hoisted-when-using-let/"  data-tooltip="Is variables hoisted when using let?">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/08/generator-function/" data-tooltip="generator function">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.lakerswgq.space/2017/05/09/webpack-code-splitting-chanpter-1/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lakerswgq.space/2017/05/09/webpack-code-splitting-chanpter-1/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.lakerswgq.space/2017/05/09/webpack-code-splitting-chanpter-1/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2018 Julien. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/16/is-variables-hoisted-when-using-let/"  data-tooltip="Is variables hoisted when using let?">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/05/08/generator-function/" data-tooltip="generator function">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.lakerswgq.space/2017/05/09/webpack-code-splitting-chanpter-1/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lakerswgq.space/2017/05/09/webpack-code-splitting-chanpter-1/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.lakerswgq.space/2017/05/09/webpack-code-splitting-chanpter-1/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://blog.lakerswgq.space/2017/05/09/webpack-code-splitting-chanpter-1/">
+                <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.lakerswgq.space/2017/05/09/webpack-code-splitting-chanpter-1/">
+                <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://blog.lakerswgq.space/2017/05/09/webpack-code-splitting-chanpter-1/">
+                <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="http://opdr57uof.bkt.clouddn.com/avatar.jpg-webp"/>
+        
+            <h4 id="about-card-name">Julien</h4>
+        
+            <h5 id="about-card-bio"><p>切图仔</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Hangzhou, China
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('http://opdr57uof.bkt.clouddn.com/cover.jpg-webp');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/script-psybx1zloe6ixyoprczwuuuqpiwqsseuloxcxguprxn39z6yy2gjgrdhvjll.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+
+</html>
